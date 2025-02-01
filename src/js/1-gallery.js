@@ -66,22 +66,23 @@ const galleryItems = [
   },
 ];
 
-const galleryList = document.querySelector(`.gallery`);
-const galleryMarkup = galleryItems.map(({ preview, original, description }) => ` 
-<li class="gallery-item">
+document.addEventListener('DOMContentLoaded', () => {
+  const galleryList = document.querySelector('.gallery');
+  if (galleryList) {
+    const galleryMarkup = galleryItems.map(({ preview, original, description }) => `
+      <li class="gallery-item">
         <a class="gallery-link" href="${original}">
-            <img 
-                class="gallery-image" 
-                src="${preview}" 
-                alt="${description}" 
-            />
+          <img class="gallery-image" src="${preview}" alt="${description}" />
         </a>
-    </li>`).join("");
+      </li>
+    `).join("");
 
-galleryList.innerHTML = galleryMarkup; 
+    galleryList.innerHTML = galleryMarkup;
 
-new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionPosition: 'bottom',
-  captionsDelay: 250,
+    new SimpleLightbox('.gallery a', {
+      captionsData: 'alt',
+      captionPosition: 'bottom',
+      captionsDelay: 250,
+    });
+  }
 });

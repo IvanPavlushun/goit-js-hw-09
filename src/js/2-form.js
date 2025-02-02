@@ -50,6 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     } else {
-        console.log('Form with class .feedback-form not found.');
+        console.error('Form with class .feedback-form not found.');
     }
 });
